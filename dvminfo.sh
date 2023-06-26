@@ -8,21 +8,6 @@ CYAN='\033[0;36m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
-# Check for sudo access
-if sudo -n true 2>/dev/null; then 
-    :
-else
-    echo -e "${RED}No sudo access. Trying 'sudo ls' to get access.${NC}"
-    sudo ls >/dev/null 2>&1
-    # Recheck sudo access
-    if sudo -n true 2>/dev/null; then 
-        :
-    else
-        echo -e "${RED}Still no sudo access. Exiting...${NC}"
-        exit 1
-    fi
-fi
-
 echo ""
 echo -e "${GREEN}-------------------------------System Information----------------------------${NC}"
 echo -e "${GREEN}Hostname:${NC}\t\t"`hostname`
